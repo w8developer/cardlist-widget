@@ -1,0 +1,10 @@
+.home__cover {
+  overflow: hidden;
+  cursor: pointer;
+}
+.home__cover img {
+  transition: all 0.3s ease-in-out;
+}
+.home__cover:hover img {
+  transform: scale(1.2);
+}

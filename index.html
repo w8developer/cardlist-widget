@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widget Container</title>
+    <style>
+      .spin {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+        min-width: 100vw;
+        height: 100%;
+        min-height: 100vh;
+        display: block;
+        background: #fff;
+      }
+      .spin:after {
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: auto;
+        border-radius: 50%;
+        border: 6px solid #1f6eff;
+        border-color: #1f6eff transparent #1f6eff transparent;
+        animation: spin 1.2s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="spin">
+      <div class="spin"></div>
+    </div>
+    <div id="widget-cardlist"></div>
+    <footer class="py-5">
+      <p class="text-center">
+        <a
+          class="d-flex align-items-center justify-content-center text-reset text-decoration-none"
+          href="#"
+        >
+          <img src="/static/icons/arrow-right.png" />
+          <strong class="block mx-3">FIND THE RIGHT MODEL FOR YOU</strong>
+        </a>
+      </p>
+    </footer>
+    <script
+      src="./cardlist-widget/index.js"
+      data-config="./cardlist-widget/config/config.json"
+      data-id="widget-cardlist"
+    ></script>
+  </body>
+</html>
