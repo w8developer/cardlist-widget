@@ -1,6 +1,6 @@
 (async function widget() {
   /**
-   * Load the widget's configuration with the provided url.
+   * Get Config from user owned data.
    *
    * @param {string} url - url to fetch
    * @returns {Promise<Record<string, ang>>} - widget config
@@ -13,9 +13,9 @@
   };
 
   /**
-   * Load css dynamically.
+   * Load Sytle and CSS vonder dynamically.
    *
-   * @param {string} css - url to load
+   * @param {string} css - url to load Boostrap v5.1
    */
   const loadStyle = (css) => {
     if (!css) {
@@ -58,7 +58,7 @@
   };
 
   /**
-   * Render spin when loading resources.
+   * Display spin when loading resources.
    *
    * @param {boolean} status - show or hide spin.
    */
@@ -69,12 +69,12 @@
   };
 
   /**
-   * Render the widget to the provided element.
+   * Create view templete and render using user owned data.
    *
    * @param {string} id - id of the element to render to
    * @param {Record<string,string>[]} data - data to render
    */
-  const getView = (id, data) => {
+  const createView = (id, data) => {
     const items = data
       .map(
         (item, index) => `
@@ -89,7 +89,7 @@
           </div>
           <div class="col-12 col-sm-6 col-lg-12">
             <h2 class="my-4">${item.title}</h2>
-            <p>${item.subtitle}</p>
+            <p class="fw-bold">${item.subtitle}</p>
           </div>
         </div>
       </div>
@@ -110,6 +110,8 @@
     element.innerHTML = html;
   };
 
+  /*********************** JumpStart **************************/
+
   const widgetID = document.currentScript.dataset.id;
   const configPath = document.currentScript.dataset.config;
 
@@ -121,5 +123,5 @@
 
   displaySpin(false);
 
-  getView(widgetID, config.data);
+  createView(widgetID, config.data);
 })();
